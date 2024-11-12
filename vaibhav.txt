@@ -1,0 +1,64 @@
+git push origin branch-name
+git pull origin branch-name
+git checkout target-branch
+git merge source-branch
+git checkout feature-branch
+git rebase target-branch
+git rebase -i HEAD~3
+git branch -D branch-name
+git branch -d branch-name
+git push <remote> <branch>
+git push origin main
+git pull <remote> <branch>
+git pull origin main
+
+git rebase is a powerful command in Git that allows you to integrate changes from one branch into another. It is often used to maintain a clean project history by moving or combining a sequence of commits to a new base commit. Here’s a brief overview of how it works and some common use cases:
+
+Basic Usage
+Rebasing a Feature Branch onto Master: If you have a feature branch and you want to incorporate the latest changes from the master branch (or main), you can do:
+
+bash
+Insert Code
+Edit
+Copy code
+git checkout feature-branch
+git rebase master
+This will take the commits from feature-branch and replay them on top of the latest commit in master.
+
+Interactive Rebase: You can also use interactive rebase to edit, reorder, or squash commits. For example, to rebase the last 3 commits:
+
+bash
+Insert Code
+Edit
+Copy code
+git rebase -i HEAD~3
+This opens an editor where you can specify what to do with each commit (pick, edit, squash, etc.).
+
+Resolving Conflicts: If there are conflicts during the rebase, Git will pause and allow you to resolve them. After resolving conflicts, you can continue the rebase with:
+
+bash
+Insert Code
+Edit
+Copy code
+git rebase --continue
+Common Use Cases
+Keeping a Clean History: Using rebase instead of merge can help keep a linear project history, making it easier to understand.
+
+Updating Feature Branches: Regularly rebasing your feature branch onto the main branch can help minimize conflicts later.
+
+Squashing Commits: When you have multiple small commits that you want to combine into one for clarity.
+
+Important Notes
+Rebasing vs. Merging: Rebasing rewrites commit history, while merging preserves the history as it is. Choose the method that best fits your workflow.
+
+Avoid Rebasing Public Branches: It’s generally a bad idea to rebase branches that others are using, as it can cause confusion and conflicts.
+
+Backup Your Work: Before performing a rebase, especially an interactive one, it's a good practice to create a backup branch just in case.
+
+Conclusion
+git rebase is a versatile tool that can help you manage your Git history effectively. Understanding how and when to use it will improve your workflow and collaboration with others.
+
+
+Share
+New
+Continue
